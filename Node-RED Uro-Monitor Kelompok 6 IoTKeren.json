@@ -1,0 +1,543 @@
+[
+    {
+        "id": "713b4d8ad56e56cc",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "a004c2cc0fa812c6",
+        "type": "mqtt in",
+        "z": "713b4d8ad56e56cc",
+        "name": "Volume",
+        "topic": "smart-urine-bag/volume1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7462cf6c1d717197",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 210,
+        "y": 520,
+        "wires": [
+            [
+                "407f9d36f4696879",
+                "c4b3b4c0b5fbe689"
+            ]
+        ]
+    },
+    {
+        "id": "c4b3b4c0b5fbe689",
+        "type": "debug",
+        "z": "713b4d8ad56e56cc",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "fabda4fd6cb71a80",
+        "type": "mqtt in",
+        "z": "713b4d8ad56e56cc",
+        "name": "Fill_Status",
+        "topic": "smart-urine-bag/status1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7462cf6c1d717197",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 720,
+        "wires": [
+            [
+                "ed4685f6a8943a38",
+                "30bf7bdcfbe33765",
+                "49f454242e74b085"
+            ]
+        ]
+    },
+    {
+        "id": "49f454242e74b085",
+        "type": "ui_text",
+        "z": "713b4d8ad56e56cc",
+        "group": "4ee8e38c187324c4",
+        "order": 2,
+        "width": 10,
+        "height": 1,
+        "name": "",
+        "label": "Status Penuh",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 480,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "ed4685f6a8943a38",
+        "type": "debug",
+        "z": "713b4d8ad56e56cc",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "9fe337c5a28f4ae3",
+        "type": "mqtt in",
+        "z": "713b4d8ad56e56cc",
+        "name": "Hematuria_Alert",
+        "topic": "smart-urine-bag/kondisi1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7462cf6c1d717197",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 240,
+        "y": 940,
+        "wires": [
+            [
+                "f6bbadddfacc2692",
+                "cb16fb536fb0c942",
+                "3384fe15739065f3"
+            ]
+        ]
+    },
+    {
+        "id": "3384fe15739065f3",
+        "type": "ui_text",
+        "z": "713b4d8ad56e56cc",
+        "group": "4ee8e38c187324c4",
+        "order": 5,
+        "width": 10,
+        "height": 1,
+        "name": "",
+        "label": "Indikasi Hematuria",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 490,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "f6bbadddfacc2692",
+        "type": "debug",
+        "z": "713b4d8ad56e56cc",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "407f9d36f4696879",
+        "type": "ui_gauge",
+        "z": "713b4d8ad56e56cc",
+        "name": "",
+        "group": "4ee8e38c187324c4",
+        "order": 9,
+        "width": 8,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Kepenuhan Kateter",
+        "label": "mL",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4490365f1291e910",
+        "type": "ui_toast",
+        "z": "713b4d8ad56e56cc",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "ALERT! Kapasitas Kateter:",
+        "name": "ALERT! Kapasitas Kateter",
+        "x": 690,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "30bf7bdcfbe33765",
+        "type": "switch",
+        "z": "713b4d8ad56e56cc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "HAMPIR PENUH",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "PENUH",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 490,
+        "y": 820,
+        "wires": [
+            [
+                "7766ee4770b3e645",
+                "4490365f1291e910"
+            ],
+            [
+                "7766ee4770b3e645",
+                "4490365f1291e910"
+            ]
+        ]
+    },
+    {
+        "id": "cb16fb536fb0c942",
+        "type": "switch",
+        "z": "713b4d8ad56e56cc",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "TERCAMPUR DARAH",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 490,
+        "y": 1040,
+        "wires": [
+            [
+                "07305466baeec07f",
+                "cd84095f043cf272"
+            ]
+        ]
+    },
+    {
+        "id": "07305466baeec07f",
+        "type": "ui_toast",
+        "z": "713b4d8ad56e56cc",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "className": "",
+        "topic": "ALERT! Indikator Hematuria:",
+        "name": "ALERT! Indikator Hematuria:",
+        "x": 700,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "cd84095f043cf272",
+        "type": "ui_audio",
+        "z": "713b4d8ad56e56cc",
+        "name": "",
+        "group": "4ee8e38c187324c4",
+        "voice": "Google Bahasa Indonesia",
+        "always": true,
+        "x": 640,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "7766ee4770b3e645",
+        "type": "ui_audio",
+        "z": "713b4d8ad56e56cc",
+        "name": "",
+        "group": "4ee8e38c187324c4",
+        "voice": "Google Bahasa Indonesia",
+        "always": true,
+        "x": 640,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "1c8418fd7e5afe40",
+        "type": "mqtt in",
+        "z": "713b4d8ad56e56cc",
+        "name": "Potentiometer",
+        "topic": "smart-urine-bag/potensiometer1",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "7462cf6c1d717197",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 250,
+        "y": 580,
+        "wires": [
+            [
+                "3a3daf13205b4b13"
+            ]
+        ]
+    },
+    {
+        "id": "3a3daf13205b4b13",
+        "type": "function",
+        "z": "713b4d8ad56e56cc",
+        "name": "function",
+        "func": "let rawPot = Number(msg.payload); // nilai 0–4095 dari MQTT\n\n// Mapping sama seperti: map(potValue, 0, 4095, 10, 1000)\nlet maxVolume = Math.round(((rawPot / 4095) * (1000 - 10)) + 10);\n\nmsg.ui_control = {\n    options: {\n        max: maxVolume\n    }\n};\n\nmsg.payload = undefined; // Jangan kirim nilai ke gauge\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 580,
+        "wires": [
+            [
+                "407f9d36f4696879"
+            ]
+        ]
+    },
+    {
+        "id": "9ab4affd0ff0f40c",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 1,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "72bec093efb95176",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8cf8a3bbeb08fdcc",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 4,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "5c19ae4d4e7ce70d",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 6,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "608f4714a70140f6",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 7,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "e7b281ed8a5e7863",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f68638debd4ff748",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 10,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "ec656a520c47def4",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 11,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b430b01d9d31e9f4",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 12,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "080ea728eaf433a4",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "c0465a33d2f6f2bc",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 14,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2a633f7be95585f8",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 15,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "9f1528d5817f8570",
+        "type": "ui_spacer",
+        "z": "713b4d8ad56e56cc",
+        "name": "spacer",
+        "group": "4ee8e38c187324c4",
+        "order": 16,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "7462cf6c1d717197",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "tcp://broker.mqtt.cool:1883",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "4ee8e38c187324c4",
+        "type": "ui_group",
+        "name": "Kamar 101",
+        "tab": "e53613939ac9c78e",
+        "order": 1,
+        "disp": true,
+        "width": 12,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e53613939ac9c78e",
+        "type": "ui_tab",
+        "name": "Kondisi Kateter",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
